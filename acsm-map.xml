@@ -1,0 +1,109 @@
+<!--This is the map of delivered ACSMs originally hosted on google.-->
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0px; padding: 0px }
+  #map-canvas { height: 100% }
+</style>
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false">
+</script>
+<script type="text/javascript">
+  function initialize() {
+   var locations = [
+      ['Environment Canada, Wistler Mountain, British Columbia, Canada', 50.05930, -122.95760, '138-068'],
+      ['Environment Canada, Alert, Northwest Territories Canada', 82.4833, -62.25, '140-100'],
+      ['National Institute for Envirnmental Studies, Okinawa Island, Japan', 26.5, 127.9333, '140-101'],
+      ['Environment Canada, Vancouver Island, British Columbia, Canada', 49.36, -125.3, '140-102'],
+      ['Department of Energy, Southern Great Plains Site, Oaklahoma, USA', 36.605, -97.485, '140-103'],
+      ['Univieristy of Helsinki/Northwest University Potchefstroom, South Africa', -26.717, 27.1, '140-104'],
+      ['Paul Scherre Institute, Zurich, Switzerland', 47.367, 8.55, '140-105'],
+      ['Department of Energy, Los Alamos National Lab, New Mexico, USA', 35.9, -106.3, '140-106'],
+      ['Department of Energy, Darwin, Australia', -12.5, 130.8, '140-107'],
+      ['Finnish Meteorological Institute, Helsinki, Finland', 60.3, 25.0, '140-108'],
+      ['National Institute for Envirnmental Studies, Tsukuba-City, Japan', 36.083, 140.12, '140-109'],
+      ['Institute of Environmental Assessment and Water Research, Barcelona, Spain',41.383,2.183, '140-110'],
+      ['Envirnment Canada, Toronto, Ontario, Canada',  43.667, -79.417, '140-111'],
+      ['IAP, Beijing, China', 39.974, 116.375, '140-112'],
+      ['LSCE, Scalay, France', 46.228, 2.214, '140-113'],
+      ['Georgia Institute of Technology, Atlanta, USA', 33.65, -84.42, '140-114'],
+      ['University of North Carolina, Chapel Hill, Atlanta, USA', 33.65, -84.42, '140-115'],
+      ['Mario Molina Center, Santiago, Chile', -33.45, -70.667, '140-116'],
+      ['Finnish Meteorological Institute, Helsinki, Finland', 60.3, 25.0, '140-132'],
+      ['National University of Ireland, Galway, Ireland', 53.27, -9.05, '140-133'],
+      ['Deutshcer Wetterdienst, Hohenpeißenberg, Germany', 47.8, 11, '140-134'],
+      ['University of Toronto, Toronto, Ontario, Canada', 43.667, -79.417, '140-135'],
+      ['Tsinghua University, Beijing, China', 40.001, 116.329, '140-136'],
+      ['Aerodyne, Hawaii, USA', 19.5, -155.9, '160-001'],
+      ['Kanazawa University, Suzu, Japan', 37.42, 137.28, '140-137'],
+      ['University of Sao Paulo, Manaus, Brazil', -3.1, -60, '140-138'],
+      ['University of Patras, Crete, Greece', 35.15, 25, '140-139'],
+      ['Environment Canada, Toronto, Ontario, Canada', 43.667,-79.417, '140-140'],
+      ['CEA, Corsica, France', 42.15, 9.0833, '140-141'],
+      ['University of Sao Paulo, Sao Paulo, Brazil',-23.5000, -46.6167, '140-142'],
+      ['Leibniz Institute for Tropospheric Research, Leipzig, Germany', 51.34, 12.38, '140-143'],
+      ['Norwegian Institute for Air Research, Birkenes, Norway', 58.4494, 8.2333, '140-144'],
+      ['PSI, Cabauw, The Netherlands', 51.9667, 4.900, '140-145'],
+      ['University of Sao Paulo, Sao Paulo, Brazil',-23.5000, -46.6167, '140-146'],
+      ['Institute of Earth Environment, Chinese Academy of Science, Xi an, China', 34.342, 108.940, '140-147'],
+      ['Dalhousie University, Halifax, Nova Scotia, Canada', 44.6479, -63.5744, '140-148'],
+      ['Jiangsu Environmental Monitoring Center, Nanjing, Jiangsu, China', 32.0410, 118.742, '140-149'],
+      ['MAA, Mexico City, Mexico',19.1300, -99.4000, '140-166'],
+      ['ENEA, Bologna, Italy', 44.5000,11.35, '140-151'],
+      ['CNR, Bologna, Italy', 44.5, 11.35, '140-152'],
+      ['CIEMAT, Madrid, Spain', 40.4, -3.6833, '140-153'],
+      ['HKEPD, Hong Kong', 22.3, 114.1667, '140-154'],
+      ['Technical University of Chile, Valparaiso', -33.0478, -71.6011, '140-155'],
+      ['RTI, Research Triangle Park, North Carolina', 35.9081, -78.8628, '140-150'],
+      ['Kings College, London, UK', 51.5171,0.1062,'140-156'],
+      ['Ecole Nationale Supérieure des Mines, Douai Cedex, France', 50.3714, 3.08, '140-157'],
+      ['Tallinn, Estonia', 59.4339, 25.7549, '140-158'],
+      ['Vilnius, Lithuania', 54.6833, 25.2833, '140-159'],
+      ['University of Texas, Austin', 30.2669, -97.7428, '140-160'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (1 of 8)', 30.809, 120.822, '140-161'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (2 of 8)', 29.164, 119.795, '140-162'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (3 of 8)', 29.639, 119.026, '140-163'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (4 of 8)', 30.175, 119.195, '140-164'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (5 of 8)', 30.483, 120.428, '140-165'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (6 of 8)', 29.100, 120.325, '140-167'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (7 of 8)', 30.149, 120.407, '140-168'],
+      ['Zhejiang Environmental Monitoring Center, Zhejiang, China (8 of 8)', 29.581, 120.390, '140-169'],
+      ['Kings College, London, UK', 51.5171,0.1062,'140-170']
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      zoom: 1,
+      center: new google.maps.LatLng(35, 0),
+      mapTypeId: google.maps.MapTypeId.SATELLITE
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker;
+
+    for (var i=0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        title: locations[i][3]
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+}
+ 
+</script>
+</head>
+<body onload="initialize()">
+  <div id="map-canvas" style="width:100%; height:100%"></div>
+</body>
+</html>
+ 
+
